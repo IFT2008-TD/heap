@@ -8,6 +8,17 @@ struct MonComparateur {
     }
 };
 
+/*
+ * Ce programme démontre les manières de créer un heap avec un objet fonctionnel représentant l'ordre des clés.
+ * Dans le premier exemple, le paramètre de type Comparateur n'est pas précisé, le compilateur utilise donc
+ * le type par défaut std::less qui va retourner l'opérateur < du type clé.
+ *
+ * Dans le deuxième exemple, on a créé un heap max avec un objet fonction déclaré plus haut.  C'est la manière la
+ * plus intuitive de procéder.
+ *
+ * Dans le troisième exemple on a créé un heap max avec une expression lambda.  Remarquer la syntaxe compliquée dans
+ * la déclaration des types du heap...
+ */
 int main() {
     Heap<int> heapMin(std::vector<int> {6, 1, 8, 2, 4, 3, 9, 0}) ;
     Heap<int, MonComparateur<int> > heapMax(std::vector<int> {6, 1, 8, 2, 4, 3, 9, 0}) ;

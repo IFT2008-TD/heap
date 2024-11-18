@@ -8,6 +8,15 @@
 #include <functional>
 #include <vector>
 
+/**
+ * Template de classe heap.  Permet d'implanter un heap avec un ordre arbitraire.  Supporte les primitives:
+ * construction: à-partir d'un vecteur de clés. \Theta(n)
+ * inserer: insérer une nouvelle clé dans le heap.  Peut ou non être distincte. \Theta(log(n))
+ * teteDeFile: lire l'élément en tête du heap sans modifier celui-ci. \Theta(1)
+ * extraireTete: retirer l'élément en tête du heap. \Theta(log(n))
+ * @tparam Cle Type des clés
+ * @tparam Comparateur Objet fonctionnel Cle X Cle -> bool retournant true si cle1 précède cle2, false sinon.
+ */
 template <typename Cle, typename Comparateur = std::less<Cle>>
 class Heap {
 private:
@@ -41,6 +50,7 @@ private:
     std::vector<Cle> heap ;
     Comparateur precede ;
 };
+
 
 template<typename K, typename Comp>
 Heap<K, Comp>::Heap(const std::vector<K>& v) : cardinal(v.size()), heap(v) {
