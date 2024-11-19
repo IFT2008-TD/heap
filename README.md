@@ -26,3 +26,14 @@ Dans main.cpp on trouve trois exemples d'instanciation du template Heap:
 - Avec la fonction d'ordre par défaut: donne un min-heap
 - Avec la relation d'ordre >, par le biais d'un objet fonctionnel, donne un max-heap
 - Avec une fonction lambda donnant aussi un max-heap.  Remarquer la syntaxe compliquée dans ce cas.
+
+### Défis et exercices
+
+Ce template sert à illustrer les concepts de base, et est peu utilisable tel quel.  
+ - Les 
+plus observateurs vont remarquer qu'il manque un primitive très importante:
+```modifier_priorite(k, np)``` Cette primitive devrait permettre de retrouver la clé k et de lui assigner la nouvelle priorité np avec une complexité globale de log(n).  On ne
+peut pas faire ça avec le heap actuel.  Quelles solutions peut-on apporter à ce problème?
+
+ - Un aspect très important a aussi été escamoté: il n'y a aucune garantie que deux clés identiques restent dans l'ordre où elles ont été insérées.  Or une file prioritaire est avant tout une file, donc la propriété FIFO devrait être respectée en tout temps pour les clés de même priorité.  Y a-t-il une solution à ce problème?
+
